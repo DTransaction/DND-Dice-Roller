@@ -6,8 +6,8 @@ GPIO.setmode(GPIO.BCM) #Sets the way we reference the GPIO Pins
 pins = [26, 19, 13, 6, 22, 27, 17, 23]
 
 dat = pins[0]
-clk = pins[1]
-ltc = pins[2]
+ltc = pins[1]
+clk = pins[2]
 clr = pins[3]
 d1 = pins[4]
 d2 = pins[5]
@@ -33,5 +33,5 @@ GPIO.output(ltc, 1)
 sleep(0.1)
 GPIO.output(ltc, 0)
 
-sleep(10)
+sleep(5)
 GPIO.cleanup()
