@@ -33,5 +33,5 @@ GPIO.output(ltc, 1)
 sleep(0.1)
 GPIO.output(ltc, 0)
 
-
+sleep(10)
 GPIO.cleanup()
