@@ -4,9 +4,9 @@ import time
 LSBFIRST = 1
 MSBFIRST = 2
 #define the pins connect to 74HC595
-dataPin   = 26		#DS Pin of 74HC595(Pin14)
-latchPin  = 19		#ST_CP Pin of 74HC595(Pin12)
-clockPin = 13		#CH_CP Pin of 74HC595(Pin11)
+dataPin   = 37		#DS Pin of 74HC595(Pin14)
+latchPin  = 35		#ST_CP Pin of 74HC595(Pin12)
+clockPin = 33		#CH_CP Pin of 74HC595(Pin11)
 
 def setup():
 	GPIO.setmode(GPIO.BOARD)    # Number GPIOs by its physical location
