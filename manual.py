@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO #Library for the GPIO Pins
-from time import sleep#Library for time-related tasks
+from time import sleep #Library for time-related tasks
 
 GPIO.setmode(GPIO.BOARD) #Sets the way we reference the GPIO Pins
 
@@ -15,7 +15,10 @@ d3 = pins[6]
 d4 = pins[7]
 
 for i in range(4): #Sets up GPIO pins as outputs
-    GPIO.setup((dat, clk, ltc, clr), GPIO.OUT) 
+    GPIO.setup(dat, GPIO.OUT) 
+    GPIO.setup(ltc, GPIO.OUT) 
+    GPIO.setup(clk, GPIO.OUT) 
+    GPIO.setup(clr, GPIO.OUT) 
 for i in range(4): #Sets up GPIO pins as outputs
     GPIO.setup((d1, d2, d3, d4), GPIO.OUT) 
 
@@ -24,14 +27,15 @@ GPIO.output((clk, ltc, d4), 0)
 
 sleep(1)
 
-for blip in range(8): 
+for blip in range(10): 
     GPIO.output(clk, 0)
     GPIO.output(clk, 1)
 
 
 GPIO.output(ltc, 1)
-sleep(0.1)
 GPIO.output(ltc, 0)
 
-sleep(5)
+sleep(3)
+
+GPIO.output(clr, 0)
 GPIO.cleanup()
