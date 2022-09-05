@@ -28,7 +28,7 @@ GPIO.output((clk, ltc, d4), 0)
 sleep(1)
 
 for blip in range(8): 
-    GPIO.output(dat, 1)
+    GPIO.output(dat, 0)
     GPIO.output(clk, 0)
     GPIO.output(clk, 1)
     GPIO.output(dat, 0)
