@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO #Library for the GPIO Pins
 from time import sleep#Library for time-related tasks
 
-GPIO.setmode(GPIO.BCM) #Sets the way we reference the GPIO Pins
+GPIO.setmode(GPIO.BOARD) #Sets the way we reference the GPIO Pins
 
 pins = [26, 19, 13, 6, 22, 27, 17, 23]
 
@@ -19,7 +19,7 @@ for i in range(4): #Sets up GPIO pins as outputs
 for i in range(4): #Sets up GPIO pins as outputs
     GPIO.setup((d1, d2, d3, d4), GPIO.OUT) 
 
-GPIO.output((dat, d1, d2, d3), 1)
+GPIO.output((dat, clr, d1, d2, d3), 1)
 GPIO.output((d4), 0)
 
 for blip in range(8): 
