@@ -24,9 +24,9 @@ GPIO.output((d4), 0)
 
 for blip in range(8): 
     GPIO.output(clk, 0)
-    sleep(0.1)
+    sleep(0.2)
     GPIO.output(clk, 1)
-    sleep(0.1)
+    sleep(0.2)
 
 
 GPIO.output(ltc, 1)
