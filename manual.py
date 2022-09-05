@@ -20,13 +20,13 @@ for i in range(4): #Sets up GPIO pins as outputs
     GPIO.setup((d1, d2, d3, d4), GPIO.OUT) 
 
 GPIO.output((dat, clr, d1, d2, d3), 1)
-GPIO.output((d4), 0)
+GPIO.output((clk, ltc, d4), 0)
+
+sleep(1)
 
 for blip in range(8): 
     GPIO.output(clk, 0)
-    sleep(0.2)
     GPIO.output(clk, 1)
-    sleep(0.2)
 
 
 GPIO.output(ltc, 1)
