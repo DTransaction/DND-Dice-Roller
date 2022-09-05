@@ -14,21 +14,24 @@ d2 = pins[5]
 d3 = pins[6]
 d4 = pins[7]
 
-for i in range(8): #Sets up GPIO pins as outputs
-    GPIO.setup(pins[i], GPIO.OUT) 
+for i in range(4): #Sets up GPIO pins as outputs
+    GPIO.setup((dat, clk, ltc, clr), GPIO.OUT) 
+for i in range(4): #Sets up GPIO pins as outputs
+    GPIO.setup((d1, d2, d3, d4), GPIO.OUT) 
 
 GPIO.output((dat, d1, d2, d3), 1)
-GPIO.output(d1, 0)
+GPIO.output((d4), 0)
 
 for blip in range(8): 
-    GPIO.output(clk, 1)
     GPIO.output(clk, 0)
+    sleep(0.1)
+    GPIO.output(clk, 1)
+    sleep(0.1)
 
 
 GPIO.output(ltc, 1)
+sleep(0.1)
 GPIO.output(ltc, 0)
-GPIO.output(clr, 1)
-GPIO.output(clr, 0)
 
 
 GPIO.cleanup()
