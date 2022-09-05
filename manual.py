@@ -38,4 +38,6 @@ GPIO.output(ltc, 0)
 sleep(3)
 
 GPIO.output(clr, 0)
+GPIO.output(ltc, 1)
+GPIO.output(ltc, 0)
 GPIO.cleanup()
