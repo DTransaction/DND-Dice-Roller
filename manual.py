@@ -22,8 +22,8 @@ for i in range(4): #Sets up GPIO pins as outputs
 for i in range(4): #Sets up GPIO pins as outputs
     GPIO.setup((d1, d2, d3, d4), GPIO.OUT) 
 
-GPIO.output((dat, clr, d4, d2, d3), 1)
-GPIO.output((clk, ltc, d1), 0)
+GPIO.output((dat, clr), 1)
+GPIO.output((clk, ltc, d1, d4, d2, d3), 0)
 
 sleep(1)
 
