@@ -39,22 +39,19 @@ for x in range(1000):
         GPIO.output(dat, x)
         GPIO.output(clk, 0)
         GPIO.output(clk, 1)
-
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
-    sleep(0.005)
+    sleep(0.1)
 
-    # GPIO.output((d1, d3, d4), 1)
-    # GPIO.output((d2), 0)
-    # for x in letter_2: 
-    #     GPIO.output(dat, x)
-    #     GPIO.output(clk, 0)
-    #     GPIO.output(clk, 1)
-
-
-    # GPIO.output(ltc, 1)
-    # GPIO.output(ltc, 0)
-    # sleep(0.005)
+    GPIO.output((d1, d3, d4), 1)
+    GPIO.output((d2), 0)
+    for x in letter_2: 
+        GPIO.output(dat, x)
+        GPIO.output(clk, 0)
+        GPIO.output(clk, 1)
+    GPIO.output(ltc, 1)
+    GPIO.output(ltc, 0)
+    sleep(0.1)
 
     # GPIO.output((d1, d2, d4), 1)
     # GPIO.output((d3), 0)
@@ -62,8 +59,6 @@ for x in range(1000):
     #     GPIO.output(dat, x)
     #     GPIO.output(clk, 0)
     #     GPIO.output(clk, 1)
-
-
     # GPIO.output(ltc, 1)
     # GPIO.output(ltc, 0)
     # sleep(0.005)
