@@ -43,6 +43,7 @@ for x in range(1000):
 
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
+    sleep(0.01)
 
     GPIO.output((d1, d3, d4), 1)
     GPIO.output((d2), 0)
@@ -51,8 +52,10 @@ for x in range(1000):
         GPIO.output(clk, 0)
         GPIO.output(clk, 1)
 
+
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
+    sleep(0.01)
 
     GPIO.output((d1, d2, d4), 1)
     GPIO.output((d3), 0)
@@ -61,8 +64,10 @@ for x in range(1000):
         GPIO.output(clk, 0)
         GPIO.output(clk, 1)
 
+
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
+    sleep(0.01)
 
     GPIO.output((d1, d3, d2), 1)
     GPIO.output((d4), 0)
@@ -73,6 +78,8 @@ for x in range(1000):
 
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
+    sleep(0.01)
+
 
 
 sleep(3)
