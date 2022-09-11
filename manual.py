@@ -15,9 +15,9 @@ d3 = pins[6]
 d4 = pins[7]
 
 
-letter_1  = [0, 1, 1, 0, 1, 1, 0, 1]
-letter_2  = [0, 0, 0, 0, 0, 1, 1, 0]
-letter_3  = [1, 0, 0, 0, 1, 1, 1, 1]
+letter_1  = [0, 0, 0, 0, 0, 1, 1, 0]
+letter_2  = [0, 1, 0, 1, 1, 0, 1, 1]
+letter_3  = [0, 1, 0, 0, 1, 1, 1, 1]
 letter_4  = [0, 1, 1, 0, 0, 1, 1, 0]
 
 for i in range(4): #Sets up GPIO pins as outputs
@@ -43,7 +43,7 @@ for x in range(1000):
 
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
-    sleep(0.01)
+    sleep(0.001)
 
     GPIO.output((d1, d3, d4), 1)
     GPIO.output((d2), 0)
@@ -55,7 +55,7 @@ for x in range(1000):
 
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
-    sleep(0.01)
+    sleep(0.001)
 
     GPIO.output((d1, d2, d4), 1)
     GPIO.output((d3), 0)
@@ -67,7 +67,7 @@ for x in range(1000):
 
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
-    sleep(0.01)
+    sleep(0.001)
 
     GPIO.output((d1, d3, d2), 1)
     GPIO.output((d4), 0)
@@ -78,7 +78,7 @@ for x in range(1000):
 
     GPIO.output(ltc, 1)
     GPIO.output(ltc, 0)
-    sleep(0.01)
+    sleep(0.001)
 
 
 
