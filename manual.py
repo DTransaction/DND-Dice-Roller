@@ -27,11 +27,8 @@ GPIO.output((clk, ltc, d1, d4, d2, d3), 0)
 
 sleep(1)
 
-for blip in range(4): 
-    GPIO.output(dat, 0)
-    GPIO.output(clk, 0)
-    GPIO.output(clk, 1)
-    GPIO.output(dat, 1)
+for x in [1, 1, 0, 1, 1, 0, 1, 0]: 
+    GPIO.output(dat, x)
     GPIO.output(clk, 0)
     GPIO.output(clk, 1)
 
