@@ -33,45 +33,46 @@ GPIO.output((clk, ltc, d1, d4, d2, d3), 0)
 
 sleep(1)
 
-GPIO.output((d2, d3, d4), 1)
-GPIO.output((d1), 0)
-for x in letter_1: 
-    GPIO.output(dat, x)
-    GPIO.output(clk, 0)
-    GPIO.output(clk, 1)
+for x in range(1000):
+    GPIO.output((d2, d3, d4), 1)
+    GPIO.output((d1), 0)
+    for x in letter_1: 
+        GPIO.output(dat, x)
+        GPIO.output(clk, 0)
+        GPIO.output(clk, 1)
 
-GPIO.output(ltc, 1)
-GPIO.output(ltc, 0)
+    GPIO.output(ltc, 1)
+    GPIO.output(ltc, 0)
 
-GPIO.output((d1, d3, d4), 1)
-GPIO.output((d2), 0)
-for x in letter_2: 
-    GPIO.output(dat, x)
-    GPIO.output(clk, 0)
-    GPIO.output(clk, 1)
+    GPIO.output((d1, d3, d4), 1)
+    GPIO.output((d2), 0)
+    for x in letter_2: 
+        GPIO.output(dat, x)
+        GPIO.output(clk, 0)
+        GPIO.output(clk, 1)
 
-GPIO.output(ltc, 1)
-GPIO.output(ltc, 0)
+    GPIO.output(ltc, 1)
+    GPIO.output(ltc, 0)
 
-GPIO.output((d1, d2, d4), 1)
-GPIO.output((d3), 0)
-for x in letter_3: 
-    GPIO.output(dat, x)
-    GPIO.output(clk, 0)
-    GPIO.output(clk, 1)
+    GPIO.output((d1, d2, d4), 1)
+    GPIO.output((d3), 0)
+    for x in letter_3: 
+        GPIO.output(dat, x)
+        GPIO.output(clk, 0)
+        GPIO.output(clk, 1)
 
-GPIO.output(ltc, 1)
-GPIO.output(ltc, 0)
+    GPIO.output(ltc, 1)
+    GPIO.output(ltc, 0)
 
-GPIO.output((d1, d3, d2), 1)
-GPIO.output((d4), 0)
-for x in letter_4: 
-    GPIO.output(dat, x)
-    GPIO.output(clk, 0)
-    GPIO.output(clk, 1)
+    GPIO.output((d1, d3, d2), 1)
+    GPIO.output((d4), 0)
+    for x in letter_4: 
+        GPIO.output(dat, x)
+        GPIO.output(clk, 0)
+        GPIO.output(clk, 1)
 
-GPIO.output(ltc, 1)
-GPIO.output(ltc, 0)
+    GPIO.output(ltc, 1)
+    GPIO.output(ltc, 0)
 
 
 sleep(3)
