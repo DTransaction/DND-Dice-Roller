@@ -82,7 +82,7 @@ def four_digit(statement: str):
 """Main script"""
 
 try:
-    four_digit("8XXX")
+    four_digit("XXX8")
     GPIO.cleanup()
 
 except KeyboardInterrupt:
