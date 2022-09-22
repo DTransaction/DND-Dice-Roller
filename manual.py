@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO #Library for the GPIO Pins
 from time import sleep #Library for time-related tasks
 
+GPIO.cleanup()
 GPIO.setmode(GPIO.BOARD) #Sets the way we reference the GPIO Pins
 
 PINS = [37, 35, 33, 31, 15, 13, 11, 16]
@@ -88,6 +89,11 @@ def digit_select(digit: int):
 try:
     digit_select(DIGIT_1)
     display_character("8")
+    clean()
+    sleep(2)
+    display_character("8")
 
 except KeyboardInterrupt:
     GPIO.cleanup()
+
+GPIO.cleanup()
