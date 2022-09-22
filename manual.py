@@ -54,13 +54,13 @@ def release():
 def clean():
     GPIO.output(CLEAR, 0)
     GPIO.output(CLEAR, 1)
-    release()
 
 def display_character(character: str): 
     for status in CHARACTER[character]:
         GPIO.output(DATA, status)
         tick()
     release()
+    clean()
 
 def digit_select(digit: int):
     off_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
@@ -69,22 +69,25 @@ def digit_select(digit: int):
         GPIO.output(off_digit, 1)
     GPIO.output(digit, 0)
 
-def four_digit(statement: str):
-    digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-    for x in range(1000):
-        for i in range(4): 
-            clean() 
-            display_character(statement[i])
-            digit_select(digit_list[i])
-            sleep(0.01)
+# def four_digit(statement: str):
+#     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
+#     for x in range(1000):
+#         for i in range(4): 
+#             clean() 
+#             digit_select(digit_list[i])
+#             display_character(statement[i])
+#             sleep(0.01)
 
 
 
 """Main script"""
 
+# try:
+#     four_digit("XD20")
+#     GPIO.cleanup()
 try:
-    four_digit("XD20")
-    GPIO.cleanup()
+    digit_select(DIGIT_1)
+    display_character("8")
 
 except KeyboardInterrupt:
     GPIO.cleanup()
