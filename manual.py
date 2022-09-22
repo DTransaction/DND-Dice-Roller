@@ -89,6 +89,7 @@ def digit_select(digit: int):
 try:
     digit_select(DIGIT_1)
     display_character("8")
+    sleep(2)
     clean()
     sleep(2)
     display_character("8")
