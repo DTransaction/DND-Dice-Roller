@@ -3,83 +3,84 @@ from time import sleep #Library for time-related tasks
 
 GPIO.setmode(GPIO.BOARD) #Sets the way we reference the GPIO Pins
 
-pins = [37, 35, 33, 31, 15, 13, 11, 16]
+PINS = [37, 35, 33, 31, 15, 13, 11, 16]
 
-dat = pins[0]
-ltc = pins[1]
-clk = pins[2]
-clr = pins[3]
-d1 = pins[4]
-d2 = pins[5]
-d3 = pins[6]
-d4 = pins[7]
+DATA = PINS[0]
+LATCH = PINS[1]
+CLOCK = PINS[2]
+CLEAR = PINS[3]
+DIGIT_1 = PINS[4]
+DIGIT_2 = PINS[5]
+DIGIT_3 = PINS[6]
+DIGIT_4 = PINS[7]
 
-letter_1  = [0, 0, 0, 0, 0, 1, 1, 0]
-letter_2  = [0, 1, 0, 1, 1, 0, 1, 1]
-letter_3  = [0, 1, 0, 0, 1, 1, 1, 1]
-letter_4  = [0, 1, 1, 0, 0, 1, 1, 0]
+CHARACTER = {
+    "1": [0, 0, 0, 0, 0, 1, 1, 0],
+    "2": [0, 1, 0, 1, 1, 0, 1, 1],
+    "3": [0, 1, 0, 0, 1, 1, 1, 1],
+    "4": [0, 1, 1, 0, 0, 1, 1, 0],
+    "5": [0, 1, 1, 0, 1, 1, 0, 1],
+    "6": [0, 1, 1, 1, 1, 1, 0, 1],
+    "7": [0, 0, 0, 0, 0, 1, 1, 1],
+    "8": [0, 1, 1, 1, 1, 1, 1, 1],
+    "9": [0, 1, 1, 0, 1, 1, 1, 1],
+    "0": [0, 0, 1, 1, 1, 1, 1, 1],
+    "A": [0, 1, 1, 1, 0, 1, 1, 1],
+    "B": [0, 1, 1, 1, 1, 1, 0, 0],
+    "C": [0, 0, 1, 1, 1, 0, 0, 1],
+    "D": [0, 1, 0, 1, 1, 1, 1, 0],
+    "E": [0, 1, 1, 1, 1, 0, 0, 1],
+    "F": [0, 1, 1, 1, 0, 0, 0, 1],
+    "X": [0, 0, 0, 0, 0, 0, 0, 0]
+}
 
-for i in range(4): #Sets up GPIO pins as outputs
-    GPIO.setup(dat, GPIO.OUT) 
-    GPIO.setup(ltc, GPIO.OUT) 
-    GPIO.setup(clk, GPIO.OUT) 
-    GPIO.setup(clr, GPIO.OUT) 
-for i in range(4): #Sets up GPIO pins as outputs 
-    GPIO.setup((d1, d2, d3, d4), GPIO.OUT) 
-
-GPIO.output((dat, clr), 1)
-GPIO.output((clk, ltc, d1, d4, d2, d3), 0)
-
-sleep(1)
-
-for x in range(1000):
-    GPIO.output(clr, 0)
-    GPIO.output(clr, 1)
-    GPIO.output((d2, d3, d4), 1)
-    GPIO.output((d1), 0)
-    for x in letter_1: 
-        GPIO.output(dat, x)
-        GPIO.output(clk, 0)
-        GPIO.output(clk, 1)
-    GPIO.output(ltc, 1)
-    GPIO.output(ltc, 0)
-    sleep(0.01)
-
-    GPIO.output(clr, 0)
-    GPIO.output(clr, 1)
-    GPIO.output((d1, d3, d4), 1)
-    GPIO.output((d2), 0)
-    for x in letter_2: 
-        GPIO.output(dat, x)
-        GPIO.output(clk, 0)
-        GPIO.output(clk, 1)
-    GPIO.output(ltc, 1)
-    GPIO.output(ltc, 0)
-    sleep(0.01)
-
-    # GPIO.output((d1, d2, d4), 1)
-    # GPIO.output((d3), 0)
-    # for x in letter_3: 
-    #     GPIO.output(dat, x)
-    #     GPIO.output(clk, 0)
-    #     GPIO.output(clk, 1)
-    # GPIO.output(ltc, 1)
-    # GPIO.output(ltc, 0)
-    # sleep(0.005)
-
-    # GPIO.output((d1, d3, d2), 1)
-    # GPIO.output((d4), 0)
-    # for x in letter_4: 
-    #     GPIO.output(dat, x)
-    #     GPIO.output(clk, 0)
-    #     GPIO.output(clk, 1)
-    # GPIO.output(ltc, 1)
-    # GPIO.output(ltc, 0)
-    # sleep(0.005)
+GPIO.setup((DATA, LATCH, CLOCK, CLEAR, DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4), GPIO.OUT)
+ 
+GPIO.output(CLEAR, 1)
+GPIO.output((CLOCK, LATCH), 0)
 
 
+"""Function definitions"""
 
-sleep(3)
+def tick(): 
+    GPIO.output(CLOCK, 1)
+    GPIO.output(CLOCK, 0)
 
-GPIO.output(clr, 0)
-GPIO.cleanup()
+def release():
+    GPIO.output(LATCH, 1)
+    GPIO.output(LATCH, 0)
+
+def clean():
+    GPIO.output(CLEAR, 0)
+    GPIO.output(CLEAR, 1)
+
+def display_character(character_data: list): 
+    for status in character_data:
+        GPIO.output(DATA, status)
+        tick()
+    release()
+
+def digit_select(digit: int):
+    off_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
+    off_list.remove(digit)
+    for off_digit in off_list:
+        GPIO.output(off_digit, 1)
+    GPIO.output(digit, 0)
+
+def four_digit(statement: str):
+    digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
+    for x in range(500)
+        for i in range(4): 
+            clean()
+            digit_select(digit_list[i])
+            display_character(statement[i])
+            sleep(0.1)
+
+"""Main script"""
+
+try:
+    four_digit("1234")
+
+except KeyboardInterrupt:
+    four_digit("XXXX")
+    GPIO.cleanup()
