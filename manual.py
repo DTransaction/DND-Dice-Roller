@@ -74,7 +74,7 @@ def four_digit(statement: str):
             clean()
             digit_select(digit_list[i])
             display_character(statement[i])
-            sleep(0.01)
+            sleep(0.001)
 
 """Main script"""
 
