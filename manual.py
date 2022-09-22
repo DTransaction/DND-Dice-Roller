@@ -87,7 +87,7 @@ def digit_select(digit: int):
 #     four_digit("XD20")
 #     GPIO.cleanup()
 try:
-    digit_select(DIGIT_1)
+    digit_select(DIGIT_2)
     display_character("8")
     sleep(2)
     clean()
