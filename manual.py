@@ -54,8 +54,8 @@ def clean():
     GPIO.output(CLEAR, 0)
     GPIO.output(CLEAR, 1)
 
-def display_character(character_data: list): 
-    for status in character_data:
+def display_character(character: str): 
+    for status in CHARACTER[character]:
         GPIO.output(DATA, status)
         tick()
     release()
