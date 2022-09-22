@@ -69,12 +69,12 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-    for x in range(500):
+    for x in range(20):
         for i in range(4): 
             clean()
             digit_select(digit_list[i])
             display_character(statement[i])
-            sleep(0.1)
+            sleep(0.01)
 
 """Main script"""
 
