@@ -69,7 +69,7 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-    for x in range(500)
+    for x in range(500):
         for i in range(4): 
             clean()
             digit_select(digit_list[i])
