@@ -72,9 +72,10 @@ def four_digit(statement: str):
     for x in range(2000):
         for i in range(4): 
             clean()
+            sleep(0.0005)
             digit_select(digit_list[i])
             display_character(statement[i])
-            sleep(0.001)
+            sleep(0.0005)
 
 """Main script"""
 
