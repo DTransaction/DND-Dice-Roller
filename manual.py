@@ -90,10 +90,6 @@ try:
     digit_select(DIGIT_2)
     display_character("8")
     sleep(2)
-    clean()
-    sleep(2)
-    display_character("8")
-    sleep(2)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
