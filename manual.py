@@ -40,6 +40,7 @@ GPIO.output(CLEAR, 1)
 GPIO.output((CLOCK, LATCH), 0)
 
 
+
 """Function definitions"""
 
 def tick(): 
@@ -74,7 +75,9 @@ def four_digit(statement: str):
             clean() 
             digit_select(digit_list[i])
             display_character(statement[i])
-            sleep(0.0005)
+            sleep(0.5)
+
+
 
 """Main script"""
 
