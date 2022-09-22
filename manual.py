@@ -84,7 +84,7 @@ def four_digit(statement: str):
 """Main script"""
 
 try:
-    four_digit("XD20")
+    four_digit("ABCD")
 # try:
 #     digit_select(DIGIT_2)
 #     display_character("8")
