@@ -93,6 +93,7 @@ try:
     release()
     sleep(5)
     display_character("8")
+    sleep(2)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
