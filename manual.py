@@ -73,8 +73,8 @@ def four_digit(statement: str):
     for x in range(1000):
         for i in range(4): 
             clean() 
-            digit_select(digit_list[i])
             display_character(statement[i])
+            digit_select(digit_list[i])
             sleep(0.5)
 
 
