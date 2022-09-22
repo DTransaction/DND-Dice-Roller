@@ -79,7 +79,7 @@ def four_digit(statement: str):
 """Main script"""
 
 try:
-    four_digit("1234")
+    four_digit("20XD")
 
 except KeyboardInterrupt:
     four_digit("XXXX")
