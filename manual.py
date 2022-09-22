@@ -69,10 +69,9 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-    for x in range(2000):
+    for x in range(1000):
         for i in range(4): 
-            clean()
-            sleep(0.0005)
+            clean() 
             digit_select(digit_list[i])
             display_character(statement[i])
             sleep(0.0005)
@@ -80,9 +79,8 @@ def four_digit(statement: str):
 """Main script"""
 
 try:
-    four_digit("20XD")
+    four_digit("8XXX")
     GPIO.cleanup()
 
 except KeyboardInterrupt:
-    four_digit("XXXX")
     GPIO.cleanup()
