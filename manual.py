@@ -91,7 +91,7 @@ try:
     display_character("8")
     clean()
     release()
-    sleep(2)
+    sleep(5)
     display_character("8")
 
 except KeyboardInterrupt:
