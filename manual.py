@@ -54,6 +54,7 @@ def release():
 def clean():
     GPIO.output(CLEAR, 0)
     GPIO.output(CLEAR, 1)
+    release()
 
 def display_character(character: str): 
     for status in CHARACTER[character]:
