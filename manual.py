@@ -76,7 +76,7 @@ def four_digit(statement: str):
             clean() 
             display_character(statement[i])
             digit_select(digit_list[i])
-            sleep(0.1)
+            sleep(0.01)
 
 
 
