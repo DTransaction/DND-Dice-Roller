@@ -90,6 +90,7 @@ try:
     digit_select(DIGIT_1)
     display_character("8")
     clean()
+    release()
     sleep(2)
     display_character("8")
 
