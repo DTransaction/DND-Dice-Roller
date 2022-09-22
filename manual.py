@@ -55,6 +55,7 @@ def release():
 def clean():
     GPIO.output(CLEAR, 0)
     GPIO.output(CLEAR, 1)
+    release()
 
 def display_character(character: str): 
     for status in CHARACTER[character]:
@@ -90,8 +91,7 @@ try:
     digit_select(DIGIT_1)
     display_character("8")
     clean()
-    release()
-    sleep(5)
+    sleep(2)
     display_character("8")
     sleep(2)
 
