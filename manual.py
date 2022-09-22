@@ -54,7 +54,6 @@ def release():
 def clean():
     GPIO.output(CLEAR, 0)
     GPIO.output(CLEAR, 1)
-    release()
 
 def display_character(character: str): 
     for status in CHARACTER[character]:
@@ -75,6 +74,7 @@ def digit_select(digit: int):
 #     for x in range(1000):
 #         for i in range(4): 
 #             clean() 
+#             release()
 #             digit_select(digit_list[i])
 #             display_character(statement[i])
 #             sleep(0.01)
