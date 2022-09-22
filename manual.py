@@ -69,7 +69,7 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-    for x in range(20):
+    for x in range(100):
         for i in range(4): 
             clean()
             digit_select(digit_list[i])
@@ -80,6 +80,7 @@ def four_digit(statement: str):
 
 try:
     four_digit("20XD")
+    GPIO.cleanup()
 
 except KeyboardInterrupt:
     four_digit("XXXX")
