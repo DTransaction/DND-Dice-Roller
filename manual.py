@@ -69,27 +69,26 @@ def digit_select(digit: int):
         GPIO.output(off_digit, 1)
     GPIO.output(digit, 0)
 
-# def four_digit(statement: str):
-#     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-#     for x in range(1000):
-#         for i in range(4): 
-#             clean() 
-#             release()
-#             digit_select(digit_list[i])
-#             display_character(statement[i])
-#             sleep(0.01)
+def four_digit(statement: str):
+    digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
+    for x in range(1000):
+        for i in range(4): 
+            clean() 
+            release()
+            digit_select(digit_list[i])
+            display_character(statement[i])
+            sleep(0.01)
 
 
 
 """Main script"""
 
-# try:
-#     four_digit("XD20")
-#     GPIO.cleanup()
 try:
-    digit_select(DIGIT_2)
-    display_character("8")
-    sleep(2)
+    four_digit("XD20")
+# try:
+#     digit_select(DIGIT_2)
+#     display_character("8")
+#     sleep(2)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
