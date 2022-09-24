@@ -101,6 +101,8 @@ def dice_pick(current_dice_index):
         four_digit("XX" + value)
         sleep(0.01*(x**2) + 0.1)
 
+
+
 """Main script"""
 
 try:
