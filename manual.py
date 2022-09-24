@@ -3,16 +3,16 @@ from time import sleep #Library for time-related tasks
 
 GPIO.setmode(GPIO.BOARD) #Sets the way we reference the GPIO Pins
 
-PINS = [37, 35, 33, 31, 15, 13, 11, 16]
-
-DATA = PINS[0]
-LATCH = PINS[1]
-CLOCK = PINS[2]
-CLEAR = PINS[3]
-DIGIT_1 = PINS[4]
-DIGIT_2 = PINS[5]
-DIGIT_3 = PINS[6]
-DIGIT_4 = PINS[7]
+DATA = 37
+LATCH = 35
+CLOCK = 33
+CLEAR = 31
+DIGIT_1 = 15
+DIGIT_2 = 13
+DIGIT_3 = 11
+DIGIT_4 = 16
+BUTTON_1 = 00000
+BUTTON_2 = 00000
 
 CHARACTER = {
     "1": [0, 0, 0, 0, 0, 1, 1, 0],
