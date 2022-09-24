@@ -12,8 +12,8 @@ DIGIT_1 = 15
 DIGIT_2 = 13
 DIGIT_3 = 11
 DIGIT_4 = 16
-BUTTON_1 = 00000
-BUTTON_2 = 00000
+BUTTON_1 = 40
+BUTTON_2 = 38
 
 GPIO.setup((DATA, LATCH, CLOCK, CLEAR, DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4), GPIO.OUT)
 GPIO.setup((BUTTON_1, BUTTON_2), GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -115,15 +115,6 @@ try:
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
             dice_pick()
-        
-        start_time = time.time()
-        while GPIO.input(pins[0]) == GPIO.LOW:
-            end_time = time.time()
-            time_elapsed = end_time - start_time
-            if time_elapsed >= 3:
-                LED_flash(counter)
-                complete = True
-                break
 
 except KeyboardInterrupt:
     GPIO.cleanup()
