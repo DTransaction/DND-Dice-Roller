@@ -114,7 +114,7 @@ try:
             current_dice_index = dice_select_cycle(current_dice_index)
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
-            dice_pick()
+            dice_pick(current_dice_index)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
