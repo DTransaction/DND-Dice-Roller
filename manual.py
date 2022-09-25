@@ -89,27 +89,28 @@ def dice_select_cycle(index: int) -> int:
         next_index = index + 1
     to_be_displayed = "XD" + dice_numbers[next_index]
     four_digit(to_be_displayed)
-    return(next_index)
+    while GPIO.input(BUTTON_1) == GPIO.LOW:
+        return(next_index)
 
 def dice_pick(current_dice_index):
-    dice_numbers = [4, 6, 8, 10, 12, 20]
-    dice_value = dice_numbers[current_dice_index]
-    for x in range(15):
-        value = str(random.randint(1, dice_value))
-        if len(value) == 1:
-            value = "X" + value
-        four_digit("XX" + value)
-        sleep(0.01*(x**2) + 0.1)
+    while GPIO.input(BUTTON_2) == GPIO.LOW:
+        dice_numbers = [4, 6, 8, 10, 12, 20]
+        dice_value = dice_numbers[current_dice_index]
+        for x in range(15):
+            value = str(random.randint(1, dice_value))
+            if len(value) == 1:
+                value = "X" + value
+            four_digit("XX" + value)
+            sleep(0.01*(x**2) + 0.1)
 
 
 
 """Main script"""
 
 try:
-    complete = False
     current_dice_index = 4
 
-    while not complete: 
+    while True: 
         if GPIO.input(BUTTON_1) == GPIO.HIGH:
             current_dice_index = dice_select_cycle(current_dice_index)
 
