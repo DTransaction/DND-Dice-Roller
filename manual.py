@@ -73,7 +73,12 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-    while GPIO.input(BUTTON_1) == GPIO.LOW and GPIO.input(BUTTON_2) == GPIO.LOW:
+    buttons_active = False
+    while buttons_active == False:
+        if GPIO.input(BUTTON_1) == GPIO.LOW:
+            initial_button_press_complete = True
+        elif (GPIO.input(BUTTON_1) == GPIO.HIGH or GPIO.input(BUTTON_2) == GPIO.HIGH) and initial_button_press_complete == True:
+            buttons_active = True
         for i in range(4): 
             clean() 
             release()
@@ -107,22 +112,21 @@ def dice_pick(current_dice_index):
 """Main script"""
 
 try:
-    current_dice_index = 4
-    dice_select_cycle(current_dice_index)
+    current_dice_index = dice_select_cycle(4)
     ready_to_change_dice = False
     ready_to_pick_dice = False
     while True: 
-        if GPIO.input(BUTTON_1) == GPIO.HIGH:
+        if GPIO.input(BUTTON_1) == GPIO.LOW:
             ready_to_change_dice = True
-        elif GPIO.input(BUTTON_1) == GPIO.LOW and ready_to_change_dice == True:
-            current_dice_index = dice_select_cycle(current_dice_index)
+        elif GPIO.input(BUTTON_1) == GPIO.HIGH and ready_to_change_dice == True:
             ready_to_change_dice = False
+            current_dice_index = dice_select_cycle(current_dice_index)
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
             ready_to_pick_dice = True
         elif GPIO.input(BUTTON_2) == GPIO.LOW and ready_to_pick_dice == True:
-            dice_pick(current_dice_index)
             ready_to_pick_dice = False
+            dice_pick(current_dice_index)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
