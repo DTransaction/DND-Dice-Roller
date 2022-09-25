@@ -75,12 +75,13 @@ def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
     print("step 3")
     while GPIO.input(BUTTON_1) == GPIO.LOW and GPIO.input(BUTTON_2) == GPIO.LOW:
-        for i in range(4): 
-            clean() 
-            release()
-            digit_select(digit_list[i])
-            display_character(statement[i])
-            sleep(0.0005)
+        for cycles in range(4):
+            for i in range(4): 
+                clean() 
+                release()
+                digit_select(digit_list[i])
+                display_character(statement[i])
+                sleep(0.0005)
 
 def dice_select_cycle(index: int) -> int: 
     dice_numbers = ["X4", "X6", "X8", "10", "12", "20"]
