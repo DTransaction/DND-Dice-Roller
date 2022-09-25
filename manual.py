@@ -73,7 +73,6 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-    print("step 3")
     while GPIO.input(BUTTON_1) == GPIO.LOW and GPIO.input(BUTTON_2) == GPIO.LOW:
         for cycles in range(4):
             for i in range(4): 
@@ -96,7 +95,6 @@ def dice_select_cycle(index: int) -> int:
     else: 
         next_index = index + 1
     to_be_displayed = "XD" + dice_numbers[next_index]
-    print("step 2")
     four_digit(to_be_displayed)
     return(next_index)
 
@@ -121,7 +119,6 @@ try:
         if GPIO.input(BUTTON_1) == GPIO.HIGH:
             ready_to_change_dice = True
         if GPIO.input(BUTTON_1) == GPIO.LOW and ready_to_change_dice == True:
-            print("step 1")
             current_dice_index = dice_select_cycle(current_dice_index)
             ready_to_change_dice = False
 
