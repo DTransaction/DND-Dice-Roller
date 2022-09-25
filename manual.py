@@ -1,18 +1,25 @@
 import RPi.GPIO as GPIO #Library for the GPIO Pins
-from time import sleep #Library for time-related tasks
+from time import sleep, time #Library for time-related tasks
+import random
 
 GPIO.setmode(GPIO.BOARD) #Sets the way we reference the GPIO Pins
 
-PINS = [37, 35, 33, 31, 15, 13, 11, 16]
+DATA = 37
+LATCH = 35
+CLOCK = 33
+CLEAR = 31
+DIGIT_1 = 15
+DIGIT_2 = 13
+DIGIT_3 = 11
+DIGIT_4 = 16
+BUTTON_1 = 40
+BUTTON_2 = 38
 
-DATA = PINS[0]
-LATCH = PINS[1]
-CLOCK = PINS[2]
-CLEAR = PINS[3]
-DIGIT_1 = PINS[4]
-DIGIT_2 = PINS[5]
-DIGIT_3 = PINS[6]
-DIGIT_4 = PINS[7]
+GPIO.setup((DATA, LATCH, CLOCK, CLEAR, DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4), GPIO.OUT)
+GPIO.setup((BUTTON_1, BUTTON_2), GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+GPIO.output(CLEAR, 1)
+GPIO.output((CLOCK, LATCH), 0)
 
 CHARACTER = {
     "1": [0, 0, 0, 0, 0, 1, 1, 0],
@@ -33,11 +40,6 @@ CHARACTER = {
     "F": [0, 1, 1, 1, 0, 0, 0, 1],
     "X": [0, 0, 0, 0, 0, 0, 0, 0]
 }
-
-GPIO.setup((DATA, LATCH, CLOCK, CLEAR, DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4), GPIO.OUT)
- 
-GPIO.output(CLEAR, 1)
-GPIO.output((CLOCK, LATCH), 0)
 
 
 
@@ -71,6 +73,7 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
+<<<<<<< HEAD
     for x in range(1000):
         for i in range(4): 
             clean() 
@@ -78,14 +81,67 @@ def four_digit(statement: str):
             digit_select(digit_list[i])
             display_character(statement[i])
             sleep(0.0005)
+=======
+    while GPIO.input(BUTTON_1) == GPIO.LOW and GPIO.input(BUTTON_2) == GPIO.LOW:
+        for cycles in range(4):
+            for i in range(4): 
+                clean() 
+                release()
+                digit_select(digit_list[i])
+                display_character(statement[i])
+                sleep(0.0005)
+    for i in range(4): 
+        clean() 
+        release()
+        digit_select(digit_list[i])
+        display_character("X")
+        sleep(0.0001)
+
+def dice_select_cycle(index: int) -> int: 
+    dice_numbers = ["X4", "X6", "X8", "10", "12", "20"]
+    if index == 5:
+        next_index = 0
+    else: 
+        next_index = index + 1
+    to_be_displayed = "XD" + dice_numbers[next_index]
+    four_digit(to_be_displayed)
+    return(next_index)
+
+def dice_pick(current_dice_index):
+    dice_numbers = [4, 6, 8, 10, 12, 20]
+    dice_value = dice_numbers[current_dice_index]
+    value = str(random.randint(1, dice_value))
+    if len(value) == 1:
+        value = "X" + value
+    four_digit("XX" + value)
+>>>>>>> button
 
 
 
 """Main script"""
 
 try:
+<<<<<<< HEAD
     four_digit("ABCD")
     four_digit("1234")
+=======
+    four_digit("XD20")
+    current_dice_index = 5
+    ready_to_change_dice = False
+    ready_to_pick_dice = False
+    while True: 
+        if GPIO.input(BUTTON_1) == GPIO.HIGH:
+            ready_to_change_dice = True
+        if GPIO.input(BUTTON_1) == GPIO.LOW and ready_to_change_dice == True:
+            current_dice_index = dice_select_cycle(current_dice_index)
+            ready_to_change_dice = False
+
+        if GPIO.input(BUTTON_2) == GPIO.HIGH:
+            ready_to_pick_dice = True
+        elif GPIO.input(BUTTON_2) == GPIO.LOW and ready_to_pick_dice == True:
+            dice_pick(current_dice_index)
+            ready_to_pick_dice = False
+>>>>>>> button
 
 except KeyboardInterrupt:
     GPIO.cleanup()
