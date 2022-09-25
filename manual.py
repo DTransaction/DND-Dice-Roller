@@ -85,10 +85,7 @@ def four_digit(statement: str):
 
 try:
     four_digit("ABCD")
-# try:
-#     digit_select(DIGIT_2)
-#     display_character("8")
-#     sleep(2)
+    four_digit("1234")
 
 except KeyboardInterrupt:
     GPIO.cleanup()
