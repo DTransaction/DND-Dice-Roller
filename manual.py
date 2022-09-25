@@ -85,7 +85,7 @@ def four_digit(statement: str):
             release()
             digit_select(digit_list[i])
             display_character(statement[i])
-            sleep(0.0008)
+            sleep(0.0005)
         print(statement)
 
 def dice_select_cycle(index: int) -> int: 
