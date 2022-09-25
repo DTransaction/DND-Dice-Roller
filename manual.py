@@ -95,13 +95,12 @@ def dice_select_cycle(index: int) -> int:
     return(next_index)
 
 def dice_pick(current_dice_index):
-    while GPIO.input(BUTTON_2) == GPIO.LOW:
-        dice_numbers = [4, 6, 8, 10, 12, 20]
-        dice_value = dice_numbers[current_dice_index]
-        value = str(random.randint(1, dice_value))
-        if len(value) == 1:
-            value = "X" + value
-        four_digit("XX" + value)
+    dice_numbers = [4, 6, 8, 10, 12, 20]
+    dice_value = dice_numbers[current_dice_index]
+    value = str(random.randint(1, dice_value))
+    if len(value) == 1:
+        value = "X" + value
+    four_digit("XX" + value)
 
 
 
@@ -114,6 +113,7 @@ try:
     ready_to_pick_dice = False
     while True: 
         if GPIO.input(BUTTON_1) == GPIO.HIGH:
+            four_digit("XXXX")
             ready_to_change_dice = True
         if GPIO.input(BUTTON_1) == GPIO.LOW and ready_to_change_dice == True:
             print("step 1")
@@ -121,6 +121,7 @@ try:
             ready_to_change_dice = False
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
+            four_digit("XXXX")
             ready_to_pick_dice = True
         elif GPIO.input(BUTTON_2) == GPIO.LOW and ready_to_pick_dice == True:
             dice_pick(current_dice_index)
