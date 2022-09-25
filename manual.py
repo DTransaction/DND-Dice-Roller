@@ -113,7 +113,6 @@ try:
     ready_to_pick_dice = False
     while True: 
         if GPIO.input(BUTTON_1) == GPIO.HIGH:
-            four_digit("XXXX")
             ready_to_change_dice = True
         if GPIO.input(BUTTON_1) == GPIO.LOW and ready_to_change_dice == True:
             print("step 1")
@@ -121,7 +120,6 @@ try:
             ready_to_change_dice = False
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
-            four_digit("XXXX")
             ready_to_pick_dice = True
         elif GPIO.input(BUTTON_2) == GPIO.LOW and ready_to_pick_dice == True:
             dice_pick(current_dice_index)
