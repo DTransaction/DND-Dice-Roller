@@ -97,7 +97,7 @@ def dice_pick(current_dice_index):
     while GPIO.input(BUTTON_2) == GPIO.LOW:
         dice_numbers = [4, 6, 8, 10, 12, 20]
         dice_value = dice_numbers[current_dice_index]
-        for x in range(15):
+        for x in range(10):
             value = str(random.randint(1, dice_value))
             if len(value) == 1:
                 value = "X" + value
@@ -121,7 +121,10 @@ try:
             ready_to_change_dice = False
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
+            ready_to_pick_dice = True
+        elif GPIO.input(BUTTON_2) == GPIO.LOW and ready_to_pick_dice == True:
             dice_pick(current_dice_index)
+            ready_to_pick_dice = False
 
 except KeyboardInterrupt:
     GPIO.cleanup()
