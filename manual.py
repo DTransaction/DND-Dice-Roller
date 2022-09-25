@@ -74,6 +74,7 @@ def digit_select(digit: int):
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
     buttons_active = False
+    initial_button_press_complete = False
     while buttons_active == False:
         if GPIO.input(BUTTON_1) == GPIO.LOW:
             initial_button_press_complete = True
