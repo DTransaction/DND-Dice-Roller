@@ -112,7 +112,8 @@ def dice_pick(current_dice_index):
 try:
     current_dice_index = 4
     dice_select_cycle(current_dice_index)
-    button_1_on = False
+    ready_to_change_dice = False
+    ready_to_pick_dice = False
     while True: 
         if GPIO.input(BUTTON_1) == GPIO.HIGH:
             ready_to_change_dice = True
