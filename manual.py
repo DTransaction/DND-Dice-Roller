@@ -80,6 +80,7 @@ def four_digit(statement: str):
             digit_select(digit_list[i])
             display_character(statement[i])
             sleep(0.0008)
+        print(statement)
 
 def dice_select_cycle(index: int) -> int: 
     dice_numbers = ["X4", "X6", "X8", "10", "12", "20"]
@@ -89,6 +90,7 @@ def dice_select_cycle(index: int) -> int:
         next_index = index + 1
     to_be_displayed = "XD" + dice_numbers[next_index]
     four_digit(to_be_displayed)
+    print(to_be_displayed)
     return(next_index)
 
 def dice_pick(current_dice_index):
@@ -115,11 +117,14 @@ try:
         if GPIO.input(BUTTON_1) == GPIO.HIGH and button_1_on == False:
             current_dice_index = dice_select_cycle(current_dice_index)
             button_1_on == True
+            print("Button 1 activated")
         elif GPIO.input(BUTTON_1) == GPIO.LOW:
             button_1_on = False
+            print("Button 1 DEactivated")
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
             dice_pick(current_dice_index)
+            print("Button 2 activated")
 
 except KeyboardInterrupt:
     GPIO.cleanup()
