@@ -114,17 +114,14 @@ try:
     dice_select_cycle(current_dice_index)
     button_1_on = False
     while True: 
-        if GPIO.input(BUTTON_1) == GPIO.HIGH and button_1_on == False:
+        if GPIO.input(BUTTON_1) == GPIO.HIGH:
+            ready_to_change_dice = True
+        elif GPIO.input(BUTTON_1) == GPIO.LOW and ready_to_change_dice == True:
             current_dice_index = dice_select_cycle(current_dice_index)
-            button_1_on == True
-            print("Button 1 activated")
-        elif GPIO.input(BUTTON_1) == GPIO.LOW:
-            button_1_on = False
-            print("Button 1 DEactivated")
+            ready_to_change_dice = False
 
         if GPIO.input(BUTTON_2) == GPIO.HIGH:
             dice_pick(current_dice_index)
-            print("Button 2 activated")
 
 except KeyboardInterrupt:
     GPIO.cleanup()
