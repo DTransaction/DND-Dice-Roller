@@ -73,15 +73,6 @@ def digit_select(digit: int):
 
 def four_digit(statement: str):
     digit_list = [DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4]
-<<<<<<< HEAD
-    for x in range(1000):
-        for i in range(4): 
-            clean() 
-            release()
-            digit_select(digit_list[i])
-            display_character(statement[i])
-            sleep(0.0005)
-=======
     while GPIO.input(BUTTON_1) == GPIO.LOW and GPIO.input(BUTTON_2) == GPIO.LOW:
         for cycles in range(4):
             for i in range(4): 
@@ -114,17 +105,12 @@ def dice_pick(current_dice_index):
     if len(value) == 1:
         value = "X" + value
     four_digit("XX" + value)
->>>>>>> button
 
 
 
 """Main script"""
 
 try:
-<<<<<<< HEAD
-    four_digit("ABCD")
-    four_digit("1234")
-=======
     four_digit("XD20")
     current_dice_index = 5
     ready_to_change_dice = False
@@ -141,7 +127,6 @@ try:
         elif GPIO.input(BUTTON_2) == GPIO.LOW and ready_to_pick_dice == True:
             dice_pick(current_dice_index)
             ready_to_pick_dice = False
->>>>>>> button
 
 except KeyboardInterrupt:
     GPIO.cleanup()
