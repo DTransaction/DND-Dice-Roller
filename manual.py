@@ -97,13 +97,10 @@ def dice_pick(current_dice_index):
     while GPIO.input(BUTTON_2) == GPIO.LOW:
         dice_numbers = [4, 6, 8, 10, 12, 20]
         dice_value = dice_numbers[current_dice_index]
-        for x in range(10):
-            value = str(random.randint(1, dice_value))
-            if len(value) == 1:
-                value = "X" + value
-            four_digit("XX" + value)
-            sleep(0.01*(x**2) + 0.1)
-        break
+        value = str(random.randint(1, dice_value))
+        if len(value) == 1:
+            value = "X" + value
+        four_digit("XX" + value)
 
 
 
