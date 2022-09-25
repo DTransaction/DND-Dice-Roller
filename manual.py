@@ -82,6 +82,12 @@ def four_digit(statement: str):
                 digit_select(digit_list[i])
                 display_character(statement[i])
                 sleep(0.0005)
+    for i in range(4): 
+        clean() 
+        release()
+        digit_select(digit_list[i])
+        display_character("X")
+        sleep(0.0001)
 
 def dice_select_cycle(index: int) -> int: 
     dice_numbers = ["X4", "X6", "X8", "10", "12", "20"]
