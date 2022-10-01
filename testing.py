@@ -11,7 +11,7 @@ print("Begin")
 try:
     while True:
         user_input = ""
-        user_input = input("turn on LED? enter '1'")
+        user_input = input("turn on LED? enter '1'\n")
         if user_input == "1":
             GPIO.output(pin, 1)
             time.sleep(3)
