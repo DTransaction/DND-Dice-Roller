@@ -22,7 +22,7 @@ Tired of the dice rolling off the table? Spend hours making a digital dice rolle
 | [Tactile button](https://www.pishop.ca/product/colorful-square-tactile-button-switch-assortment-15-pack/)                    |    2  |
 | [220 Ohm resistor](https://www.pishop.ca/product/resistor-kit-14w-500-total/)                                                |   11  |
 | [2200 Ohm resistor](https://www.pishop.ca/product/resistor-kit-14w-500-total/)                                               |    3  |
-| [Various colour and length solid core 22AWG wire](https://www.pishop.ca/search.php?page=2&section=product&search_query=wire) | Many! |
+| [Various colour and length solid core 22AWG wire](https://www.pishop.ca/product/hook-up-wire-spool-set-22awg-solid-core-6-x-25-ft/) | Many! |
 
 ## What's in the Crystal Ball? 
 ... I see the circuit being established into a more permanent enclosure, perhaps soldered onto a strip board inside a wooden box... 
