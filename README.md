@@ -24,5 +24,10 @@ Tired of the dice rolling off the table? Spend hours making a digital dice rolle
 | [2200 Ohm resistor](https://www.pishop.ca/product/resistor-kit-14w-500-total/)                                               |    3  |
 | [Various colour and length solid core 22AWG wire](https://www.pishop.ca/search.php?page=2&section=product&search_query=wire) | Many! |
 
+## What's in the Crystal Ball? 
+... I see the circuit being established into a more permanent enclosure, perhaps soldered onto a strip board inside a wooden box... 
+
+... There is also a potential gain in efficiency as the program currently has to continuously check if the button has been pressed or not... 
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
